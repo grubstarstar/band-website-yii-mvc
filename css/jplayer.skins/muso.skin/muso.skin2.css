@@ -1,0 +1,124 @@
+div.jp-gui {
+	height: 80px;
+	width: 400px;
+	border: black solid 1px;
+}
+div.jp-controls {
+	margin: 0;
+	padding: 0;
+	height: inherit;
+	width: 60px;
+}
+
+
+/* controls 1 */
+div.controls1 {
+	background-color: #BBB;
+	width: 40px;
+	height: 100%;
+	float: right;
+	text-indent: -999em;
+}
+div.controls1 a.jp-play, div.controls1 a.jp-pause, div.controls1 a.jp-stop {
+	display: block;
+	height: 50%;
+}
+div.controls1 a.jp-play { background-color: #BDD; }
+div.controls1 a.jp-play:hover, div.controls1 a.jp-pause:hover, div.controls1 a.jp-stop:hover, span.jp-toggles:hover {
+	background-color: #ABF;
+}
+
+
+/* controls 2 */
+div.controls2 {
+	background-color: #CCC;
+	width: 20px;
+	height: 100%;
+	float: left;
+	text-indent: -999em;
+}
+div.controls2 a.jp-mute, div.controls2 a.jp-unmute, div.controls2 a.jp-volume-max, div.controls2 div.jp-volume-bar {
+	display: block;
+}
+div.controls2 a.jp-mute:hover, div.controls2 a.jp-unmute:hover, div.controls2 a.jp-volume-max:hover {
+	background-color: #ABF;
+}
+div.controls2 a.jp-mute {
+	background-color: #777;
+	height: 20px;
+}
+
+div.controls2 a.jp-unmute {
+	background-color: #333;
+	height: 20px;
+}
+div.controls2 div.jp-volume-bar {
+	height: 40px;
+}
+div.controls2 div.jp-volume-bar-value {
+	background-color: #EEBB66;
+	height: inherit;
+}
+div.controls2 a.jp-volume-max {
+	background-color: #777;
+	height: 20px;
+}
+
+
+
+div.jp-progress {
+	width: 340px;
+	height: 80px;
+	margin-left: 60px;
+	position: relative;
+}
+
+div.jp-seek-bar {
+	width:0px;
+	height:100%;
+	cursor: pointer;
+}
+
+div.jp-play-bar {
+	height: inherit;
+	width: 100%;
+	background-color: yellow;
+	zoom: 1;
+	filter: alpha(opacity=35);
+	opacity: 0.35;
+}
+
+
+/* time */
+div.jp-time-holder {
+	position: absolute;
+	bottom: 0px;
+	height: 20px;
+	width: 120px;
+	font-family: "helvetica", "arial";
+	font-size: 0.75em;
+}
+span.jp-current-time, span.jp-duration {
+	padding: 0 10px;
+	width: 32px;
+	height: inherit;
+	display: inline-block;
+	color: #454545;
+}
+span.jp-toggles {
+	position: absolute;
+	display: inline-block;
+	bottom: 0;
+	right: 0;
+	float: right;
+	width: 30px;
+	height: 30px;
+	background-color: #5D5;
+	text-indent: -999em;
+}
+span.jp-toggles .jp-repeat {
+
+}
+span.jp-toggles .jp-repeat-off {
+
+}

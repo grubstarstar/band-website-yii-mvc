@@ -1,0 +1,45 @@
+.mpanel {
+	position: relative;
+	padding: 10px;
+	border: thin solid #BBB;
+}
+
+.mpanel .item_container {
+	margin: 10px 0 0 0;
+	position: relative;
+}
+
+.mpanel .add_button {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	text-indent: -999em;
+	width: 20px;
+	height: 20px;
+	background-color: blue;
+	cursor: pointer;
+}
+
+.mpanel .item_container .delete_button {
+	position: absolute;
+	right: 0;
+	top: 40%;
+	text-indent: -999em;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	cursor: pointer;
+}
+
+.mpanel_form {
+	position: absolute;
+	padding: 20px;
+	border: thin #CCCCCC solid;
+	background-color: #EEEEEE;
+	top: 50%;
+	left: 50%;
+}
+
+.mpanel .loading, .mpanel_form .loading {
+	background-color: black !important;
+}
