@@ -1,6 +1,8 @@
 <?php
 
 Yii::import('application.lib.RUtils.RUtils');
+Yii::import('application.lib.RUtils.RYiiPath');
+Yii::import('application.lib.RUtils.RYiiUrl');
 
 /**
  * This is the model class for table "song".
@@ -16,6 +18,15 @@ Yii::import('application.lib.RUtils.RUtils');
 class Song extends CActiveRecord
 {
 	public $songFile; // saves the CUploadedFile object for file_name
+
+	private $_datapath;
+	private $_dataurl; 
+
+	public function init()
+	{
+		$this->_datapath = new RYiiPath('static');
+	 	$this->_dataurl = new RYiiUrl('static');
+	}
 
 	/**
     * Saves the name, size, type and data of the uploaded file
@@ -131,103 +142,63 @@ class Song extends CActiveRecord
 	}
 
 
+	/*** get Folders and File paths ***/
 
-	# utility functions for getting paths and urls.
-
-	public $_songsFolder;
-	public $_waveImagesFolder;
-	public $_dataFolder;
-	public $_dataUrl;
-	public $_songsUrl;
-	public $_waveImagesUrl;
-
-
-	/*** get Folders ***/
-	// The folder that contains the data
-	public function getDataFolder() {
-		if(!$this->_dataFolder) {
-			$this->_dataFolder = sprintf("%s\\static", str_replace('\protected', '', Yii::app()->basePath));
-			$this->createdir(sprintf("%s\\static", str_replace('\protected', '', Yii::app()->basePath)));
-			$this->createdir($this->_dataFolder);
-		}
-		return $this->_dataFolder;
-	}
 	// The folder that contains the songs
-	public function getSongsFolder() {
-		if(!$this->_songsFolder) {
-			$this->_songsFolder = sprintf("%s\\songs", $this->dataFolder);
-			$this->createdir($this->_songsFolder);
-		}
-		return $this->_songsFolder;
+	public function getSongsFolder()
+	{
+		return $this->_datapath->create("songs");
 	}
+
 	// The folder that contains the wave images
-	public function getWaveImagesFolder() {
-		if(!$this->_waveImagesFolder) {
-			$this->_waveImagesFolder = sprintf("%s\\wave_images", $this->dataFolder);
-			$this->createdir($this->_waveImagesFolder);
-		}
-		return $this->_waveImagesFolder;
+	public function getWaveImagesFolder()
+	{
+		return $this->_datapath->create("wave_images");
 	}
 
-
-	/*** get File paths ***/	
 	// returns the full path where this file is stored
     public function getSongFilePath()
     {
-    	return sprintf("%s\\%s", $this->songsFolder, $this->file_name);
+    	return $this->_datapath->create("songs", $this->file_name);
     }
+
     // returns the full path where this file is stored
     public function getWaveImageFilePath()
     {	
-    	$w = preg_split('/\./', $this->file_name);
-    	return sprintf("%s\\%s", $this->waveImagesFolder, $this->waveImageFileName);
+    	return $this->_datapath->create("wave_images", $this->waveImageFileName);
     }
 
-
-    /*** get File names ***/
     // returns the waveform image filename
     public function getWaveImageFileName()
     {	
-    	// $w = preg_split('/\./', $this->file_name);
-    	return preg_replace('/\..*$/', ".png", $this->file_name);
-    	// return sprintf("%s.%s", $w[0], "png");
+    	return RYiiPath::changeExtension($this->file_name, 'png');
     }
 
 	
     /*** get URLs ***/
-    // The url to the data
-	public function getDataUrl() {
-		if(!$this->_dataUrl) { $this->_dataUrl = sprintf("%s/static", str_replace('/protected', '', Yii::app()->baseUrl)); }
-		return $this->_dataUrl;
-	}
+
 	// The url to the songs
-	public function getSongsUrl() {
-		if(!$this->_songsUrl) { $this->_songsUrl = sprintf("%s/songs", $this->dataUrl); }
-		return $this->_songsUrl;
+	public function getSongsUrl()
+	{
+		return $this->_dataurl->create("songs");
 	}
+
 	// returns the full path where this file is stored
     public function getSongUrl()
     {
-    	return sprintf("%s/%s", $this->songsUrl, $this->file_name);
+    	return $this->_dataurl->create("songs", $this->file_name);
     }
+
     // The url to the waveimagefile
-	public function getWaveImagesUrl() {
-		if(!$this->_waveImagesUrl) { $this->_waveImagesUrl = sprintf("%s/wave_images", $this->dataUrl); }
-		return $this->_waveImagesUrl;
+	public function getWaveImagesUrl()
+	{
+		return $this->_dataurl->create("wave_images");
 	}
+
 	// returns the full path where this file is stored
     public function getWaveImageUrl()
     {
-    	return sprintf("%s/%s", $this->waveImagesUrl, $this->waveImageFileName);
+    	return $this->_dataurl->create("wave_images", $this->waveImageFileName);
     }
-
-	
-
-	// create directory if it doesn't exist
-	private function createdir($path) {
-		if(!is_dir($path)) {
-			return mkdir($path);
-		}
-	}
 
 }

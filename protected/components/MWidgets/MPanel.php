@@ -16,7 +16,7 @@ class MPanel extends CWidget
     {
 		$this->_mpanel_id = sprintf("panel_%s", uniqid(rand(), false));
 		$model_class = ucfirst($this->model_class);
-		$model_class_lc = lcfirst($this->model_class);
+		$model_class_lc = strtolower($this->model_class);
 
 		// get the parameters.
 		$form_params = $this->edit_form;
@@ -39,7 +39,7 @@ class MPanel extends CWidget
 			
 		<?php
 			if(empty($this->models)) {
-				Yii::app()->controller->renderPartial($this->empty_view, array( $model_class_lc => []));
+				Yii::app()->controller->renderPartial($this->empty_view);
 			} else {
 				// LOOP through each model
 				foreach($this->models as $m) { 
