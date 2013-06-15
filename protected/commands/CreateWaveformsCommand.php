@@ -20,13 +20,9 @@ class CreateWaveformsCommand extends CConsoleCommand
 
 			printf("\tsongsFolder\t[%s]\n", $song->songsFolder);
 			printf("\tsongFilePath\t[%s]\n", $song->songFilePath);
-			printf("\tsongsUrl\t[%s]\n", $song->songsUrl);
-			printf("\tsongUrl\t[%s]\n", $song->songUrl);
 
 			printf("\twaveImagesFolder\t[%s]\n", $song->waveImagesFolder);
 			printf("\twaveImageFilePath\t[%s]\n", $song->waveImageFilePath);
-			printf("\twaveImagesUrl\t[%s]\n", $song->waveImagesUrl);
-			printf("\twaveImageUrl\t[%s]\n", $song->waveImageUrl);
 
 			print("\n\n");
 
