@@ -2,34 +2,52 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #555;
+	color: #222;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
 }
 
+a
+{
+	color: #000;
+}
+
 #page
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
+	width: 1068px;
+}
+
+#inner-page
+{
+	margin: 20px;
+	/*height: 640px;*/
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
+	height: 150px;
+	background-color: #EEE;
 }
 
 #content
 {
-    padding: 20px;
+	width: 880px;
+	height: 560px;
+	background-color: #BBB;
+	margin-top: 15px;
 }
 
 #sidebar
 {
-	padding: 20px 20px 20px 0;
+	background-color: #D2E;
+	width: 148px;
+	height: 560px;
+	float:right;
+	margin-top: 15px;
 }
 
 #footer
@@ -49,33 +67,41 @@ body
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+	height: 35px;
+	background-color: #EAB;
 }
 
 #mainmenu ul
 {
-	padding:6px 20px 5px 20px;
-	margin:0px;
+	width: 600px;
+	height: inherit;
+	margin:0px auto;
+	padding: 0;
 }
 
 #mainmenu ul li
 {
-	display: inline;
+	float:right;
+	display: block;
+	width: 150px;
+	height: inherit;
+	padding-left: 10px 20px;
 }
 
 #mainmenu ul li a
 {
-	color:#ffffff;
-	background-color:transparent;
+	display: block;
+	height: 16px;
+	background-color: transparent;
 	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
-	padding:5px 8px;
+	padding:10px 55px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	color: #6399cd;
+	color: #222;
 	background-color:#EFF4FA;
 	text-decoration:none;
 }
