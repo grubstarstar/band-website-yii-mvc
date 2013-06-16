@@ -2,16 +2,19 @@
 <?php $this->beginContent('//layouts/main'); ?>
 
 	<div id="sidebar">
-	<?php
-		$this->beginWidget('zii.widgets.CPortlet', array(
-			'title'=>'Operations',
-		));
-		$this->widget('zii.widgets.CMenu', array(
-			'items'=>$this->menu,
-			'htmlOptions'=>array('class'=>'operations'),
-		));
-		$this->endWidget();
-	?>
+
+		<div class="section">
+			<form>
+				<div class="negative side_title part">SUBSCRIBE</div>
+				<div class="part"><input type="email" value="email here" /></div>
+				<div class="part"><input type="submit" value="SUBMIT" /></div>
+			</form>
+		</div>
+
+		<div class="section">
+			
+		</div>
+
 	</div><!-- sidebar -->
 
 

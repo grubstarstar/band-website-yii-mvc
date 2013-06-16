@@ -1,6 +1,6 @@
 <?php
 
-class SongController extends Controller
+class ShowsController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,16 +62,16 @@ class SongController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Song;
+		$model=new Shows;
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Song']))
+		if(isset($_POST['Shows']))
 		{
-			$model->attributes=$_POST['Song'];
+			$model->attributes=$_POST['Shows'];
 			if($model->save())
-				$this->redirect(array('site/index'));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -91,9 +91,9 @@ class SongController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Song']))
+		if(isset($_POST['Shows']))
 		{
-			$model->attributes=$_POST['Song'];
+			$model->attributes=$_POST['Shows'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -110,28 +110,11 @@ class SongController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isAjaxRequest) {
-			// used ajax deletion from MPanel widget
-			$model=$this->loadModel($id);
-			if(!isset($model))
-				throw new CHttpException(404, 'Not found. The song cannot be found');
-			if($model->delete()) {
-				echo CJSON::encode(array('deleted'=>true));
-			} else {
-				throw new CHttpException(500,'Internal Server Error. Unable to delete this song.');
-			}
-		}
-		else if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+		$this->loadModel($id)->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		} 
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -139,10 +122,10 @@ class SongController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// $dataProvider=new CActiveDataProvider('Song');
-		$this->render('index');
-
-
+		$dataProvider=new CActiveDataProvider('Shows');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 
 	/**
@@ -150,10 +133,10 @@ class SongController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Song('search');
+		$model=new Shows('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Song']))
-			$model->attributes=$_GET['Song'];
+		if(isset($_GET['Shows']))
+			$model->attributes=$_GET['Shows'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -167,7 +150,7 @@ class SongController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Song::model()->findByPk($id);
+		$model=Shows::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -179,7 +162,7 @@ class SongController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='song-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='shows-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -5,6 +5,12 @@ body
 	color: #222;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
+	font-family: 'Cabin', sans-serif;
+}
+
+h1
+{
+	font-size: 28px;
 }
 
 a
@@ -15,8 +21,9 @@ a
 #page
 {
 	background: white;
-	border: 1px solid #C9E0ED;
+	border: 1px solid #CCC;
 	width: 1068px;
+	margin-top: 20px;
 }
 
 #inner-page
@@ -30,24 +37,71 @@ a
 	margin: 0;
 	padding: 0;
 	height: 150px;
-	background-color: #EEE;
+	border-top: 1px solid #444;
 }
 
 #content
 {
-	width: 880px;
+	width: 865px;
 	height: 560px;
-	background-color: #BBB;
 	margin-top: 15px;
+}
+
+.negative
+{
+	color: #FFF;
+	background-color:#444;
 }
 
 #sidebar
 {
-	background-color: #D2E;
 	width: 148px;
 	height: 560px;
 	float:right;
 	margin-top: 15px;
+	margin-left: 15px;
+}
+
+input
+{
+	background-color: #FFF;
+	border: #BBB solid 1px;
+	font-family: 'Cabin', sans-serif;
+}
+
+#sidebar .side_title
+{
+	padding: 5px 40px;
+}
+#sidebar .part
+{
+	margin-bottom: 5px;
+}
+#sidebar .section
+{
+	margin-bottom: 15px;
+}
+#sidebar input
+{
+	width: 142px;
+	padding: 2px;
+}
+#sidebar input[type=submit]
+{
+	width: 148px;
+}
+
+input[type=submit]
+{
+	border: #777 solid 1px;
+	color: #FFF;
+	background-color:#777;
+}
+input[type=submit]:hover
+{
+	border: #AAA solid 1px;
+	background-color:#AAA;
+	cursor: pointer;
 }
 
 #footer
@@ -61,14 +115,18 @@ a
 
 #logo
 {
-	padding: 10px 20px;
-	font-size: 200%;
+	font-size: 118px;
+	margin: 0 auto;
+	width: 1028px;
+	text-align: center;
 }
 
 #mainmenu
 {
 	height: 35px;
-	background-color: #EAB;
+	/*background-color: #EAB;*/
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #444;
 }
 
 #mainmenu ul
@@ -91,18 +149,19 @@ a
 #mainmenu ul li a
 {
 	display: block;
-	height: 16px;
+	height: 15px;
 	background-color: transparent;
-	font-size:12px;
+	font-size:11px;
 	font-weight:bold;
 	text-decoration:none;
-	padding:10px 55px;
+	padding:9px 48px 11px 48px;
+	font-size: 16px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	color: #222;
-	background-color:#EFF4FA;
+	color: #FFF;
+	background-color:#444;
 	text-decoration:none;
 }
 

@@ -18,7 +18,9 @@ Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	<link href='http://fonts.googleapis.com/css?family=Cabin:400,600,700,600italic' rel='stylesheet' type='text/css'>
+
+	<title><?php echo strtoupper(CHtml::encode($this->pageTitle)); ?></title>
 </head>
 
 <body>
@@ -27,17 +29,17 @@ Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 	<div id="inner-page">
 
 		<div id="header">
-			<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+			<div id="logo"><?php echo strtoupper(CHtml::encode(Yii::app()->name)); ?></div>
 		</div><!-- header -->
 
 		<div id="mainmenu">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 					array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-					array('label'=>'Audio', 'url'=>array('/site/audio')),
-					array('label'=>'Shows', 'url'=>array('/site/shows')),
-					array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-					array('label'=>'Home', 'url'=>array('/site/index'))
+					array('label'=>'ABOUT', 'url'=>array('/site/page', 'view'=>'about')),
+					array('label'=>'SHOWS', 'url'=>array('/shows/index')),
+					array('label'=>'AUDIO', 'url'=>array('/song/index')),
+					array('label'=>'HOME', 'url'=>array('/site/index'))
 					// array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				),
 			)); ?>

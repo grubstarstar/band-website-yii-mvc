@@ -1,20 +1,7 @@
 <?php
 /* @var $this SongController */
 /* @var $dataProvider CActiveDataProvider */
-
-$this->breadcrumbs=array(
-	'Songs',
-);
-
-$this->menu=array(
-	array('label'=>'Create Song', 'url'=>array('create')),
-	array('label'=>'Manage Song', 'url'=>array('admin')),
-);
 ?>
 
-<h1>Songs</h1>
+<iframe width="100%" height="560" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F6538612"></iframe>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
