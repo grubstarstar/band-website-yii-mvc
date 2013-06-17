@@ -1,5 +1,7 @@
 <?php
 
+Yii::import('application.lib.RUtils.RMailer');
+
 class SiteController extends Controller
 {
 	/**
@@ -51,25 +53,64 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
-				$headers="From: $name <{$model->email}>\r\n".
-					"Reply-To: {$model->email}\r\n".
-					"MIME-Version: 1.0\r\n".
-					"Content-type: text/plain; charset=UTF-8";
+		$mailer = new RMailer();
 
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
-			}
+		$mailer->from = array( Yii::app()->params['adminEmail'] => Yii::app()->params['adminName'] );
+
+		$mailer->to = array(
+			array('userb@richtest.com' => 'Sender Smith B'),
+			array('usera@richtest.com' => 'Sender Smith A'),
+		);
+
+		$mailer->cc = array(
+			array('userc@richtest.com' => 'Sender Smith 5'),
+			array('userd@richtest.com' => 'Sender Smith 6'),
+		);
+
+		$mailer->bcc = array(
+			array('usere@richtest.com' => 'Sender Smit 2345'),
+		);
+
+		$mailer->subject = "Blah Blah";
+		$mailer->html = "<h1>This is an email</h1><p>This is a paragrapha</p>";
+		$mailer->text = "This is an email\n\nThis is a paragrapha";
+
+		if(!$mailer->send())
+		{
+			Yii::log($mailer->ErrorMessage);
 		}
-		$this->render('contact',array('model'=>$model));
+		else
+		{
+			Yii::log("Success");
+		}
+
+
+
+		// $model=new ContactForm;
+		// if(isset($_POST['ContactForm']))
+		// {
+		// 	$model->attributes=$_POST['ContactForm'];
+		// 	if($model->validate())
+		// 	{
+		// 		$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+		// 		$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
+		// 		$headers="From: $name <{$model->email}>\r\n".
+		// 			"Reply-To: {$model->email}\r\n".
+		// 			"MIME-Version: 1.0\r\n".
+		// 			"Content-type: text/plain; charset=UTF-8";
+
+		// 		mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+		// 		Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+		// 		$this->refresh();
+		// 	}
+		// }
+		// $this->render('contact',array('model'=>$model));
+
+		// validate the email
+
+		// write the email to the mailing list table, along with name
+
+		// send an email introducing them, option to unsubscribe.
 	}
 
 	/**

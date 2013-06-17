@@ -73,9 +73,9 @@ return array(
 				),
 				// uncomment the following to show log messages on web pages
 				
-				// array(
-				// 	'class'=>'CWebLogRoute',
-				// ),
+				array(
+					'class'=>'CWebLogRoute',
+				),
 				
 			),
 		),
@@ -84,7 +84,10 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
-		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'no-reply@alonewithtiger.com',
+		'adminName'=>'Alone With Tiger',
+		'smtpHost'=>'localhost',
+		'smtpUsername'=>null,
+		'smtpPassword'=>null
 	),
 );
