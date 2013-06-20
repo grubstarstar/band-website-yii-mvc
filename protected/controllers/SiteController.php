@@ -53,8 +53,6 @@ class SiteController extends Controller
 	 */
 	public function actionSubscribe()
 	{
-		$response = '';
-
 		if(Yii::app()->request->isAjaxRequest)
 		{
 			try
@@ -62,20 +60,28 @@ class SiteController extends Controller
 				// add to subscribers list.
 				$model = new MailingList();
 				$model->attributes = $_POST['MailingList'];
+
+				if(!$model->validate())
+				{
+					if($model->getErrors('email'))
+					{
+						echo "<p>email address is invalid</p>";
+					}
+					if($model->getErrors('first') || $model->getErrors('last'))
+					{
+						echo "<p>name is too long</p>";
+					}
+					Yii::app()->end();
+				}
+
 				if($model->save())
 				{
 					// send email welcoming them to the list
 					$mailer = new RMailer();
 
-					$mailer->from = array();
-
 					$mailer->to = array(
-						array($model->email => $model->name),
+						array($model->email => $model->fullName),
 					);
-
-					// $mailer->cc = array();
-
-					// $mailer->bcc = array();
 
 					$mailer->subject = "Thank you for subscribing!";
 					$mailer->html = "<h1>This is an email</h1><p>This is a paragrapha</p>";
@@ -84,25 +90,24 @@ class SiteController extends Controller
 					if($mailer->send())
 					{
 						Yii::log("Successfully sent email", "RMailer");
+						echo "<p>Thank you for subscribing</p>";
 					}
 					else
 					{
 						Yii::log($mailer->ErrorMessage, "RMailer");
+						echo "<p>Sorry, please try again later</p>";
 					}
-
-					$response = "<p>Thank you for subscribing</p>";
 				}
 				else
 				{
-					$response = "<p>Sorry, please try again later</p>";
+					echo "<p>Sorry, please try again later</p>";
 				}
 			}
 			catch(Exception $ex)
 			{
-				Yii::log($ex->message, "RMailer");
-				$response = "<p>Sorry, please try again later</p>";
+				Yii::log($ex->getMessage(), "RMailer");
+				echo "<p>Sorry, please try again later</p>";
 			}
-
 		}
 		
 	}

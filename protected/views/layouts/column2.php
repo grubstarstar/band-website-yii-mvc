@@ -1,6 +1,8 @@
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
 
+<?php $mailing_list_model = new MailingList(); ?>
+
 	<div id="sidebar">
 
 		<div class="section">
@@ -14,7 +16,11 @@
 
 			<div class="negative side_title part">SUBSCRIBE</div>
 
-			<div class="part"><?php echo CHtml::textField('email_address', 'email here'); ?></div>
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'email', array('value'=>'email here')); ?></div>
+
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'first', array('value'=>'first name')); ?></div>
+
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'last', array('value'=>'second')); ?></div>
 
 			<div class="part">
 				<?php
