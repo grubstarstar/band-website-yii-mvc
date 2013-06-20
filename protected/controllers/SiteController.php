@@ -49,6 +49,65 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * Deals with subscibers to the newsletter
+	 */
+	public function actionSubscribe()
+	{
+		$response = '';
+
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			try
+			{
+				// add to subscribers list.
+				$model = new MailingList();
+				$model->attributes = $_POST['MailingList'];
+				if($model->save())
+				{
+					// send email welcoming them to the list
+					$mailer = new RMailer();
+
+					$mailer->from = array();
+
+					$mailer->to = array(
+						array($model->email => $model->name),
+					);
+
+					// $mailer->cc = array();
+
+					// $mailer->bcc = array();
+
+					$mailer->subject = "Thank you for subscribing!";
+					$mailer->html = "<h1>This is an email</h1><p>This is a paragrapha</p>";
+					$mailer->text = "This is an email\n\nThis is a paragrapha";
+
+					if($mailer->send())
+					{
+						Yii::log("Successfully sent email", "RMailer");
+					}
+					else
+					{
+						Yii::log($mailer->ErrorMessage, "RMailer");
+					}
+
+					$response = "<p>Thank you for subscribing</p>";
+				}
+				else
+				{
+					$response = "<p>Sorry, please try again later</p>";
+				}
+			}
+			catch(Exception $ex)
+			{
+				Yii::log($ex->message, "RMailer");
+				$response = "<p>Sorry, please try again later</p>";
+			}
+
+		}
+		
+	}
+
+	/**
 	 * Displays the contact page
 	 */
 	public function actionContact()
