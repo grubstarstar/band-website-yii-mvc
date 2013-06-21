@@ -55,61 +55,51 @@ class SiteController extends Controller
 	{
 		if(Yii::app()->request->isAjaxRequest)
 		{
-			try
+			// add to subscribers list.
+			$model = new MailingList();
+			$model->attributes = $_POST['MailingList'];
+
+			if(!$model->validate())
 			{
-				// add to subscribers list.
-				$model = new MailingList();
-				$model->attributes = $_POST['MailingList'];
-
-				if(!$model->validate())
+				if($model->getErrors('email'))
 				{
-					if($model->getErrors('email'))
-					{
-						echo "<p>email address is invalid</p>";
-					}
-					if($model->getErrors('first') || $model->getErrors('last'))
-					{
-						echo "<p>name is too long</p>";
-					}
-					Yii::app()->end();
+					echo "<p>email address is invalid</p>";
 				}
-
-				if($model->save())
+				if($model->getErrors('first') || $model->getErrors('last'))
 				{
-					// send email welcoming them to the list
-					$mailer = new RMailer();
+					echo "<p>name is too long</p>";
+				}
+				Yii::app()->end();
+			}
 
-					$mailer->to = array(
-						array($model->email => $model->fullName),
-					);
+			if($model->save())
+			{
+				// send email welcoming them to the list
+				$mailer = new RMailer();
 
-					$mailer->subject = "Thank you for subscribing!";
-					$mailer->html = "<h1>This is an email</h1><p>This is a paragrapha</p>";
-					$mailer->text = "This is an email\n\nThis is a paragrapha";
+				$mailer->to = array(
+					array($model->email => $model->fullName),
+				);
 
-					if($mailer->send())
-					{
-						Yii::log("Successfully sent email", "RMailer");
-						echo "<p>Thank you for subscribing</p>";
-					}
-					else
-					{
-						Yii::log($mailer->ErrorMessage, "RMailer");
-						echo "<p>Sorry, please try again later</p>";
-					}
+				$mailer->subject = "Thank you for subscribing!";
+				$mailer->html = "<h1>This is an email</h1><p>This is a paragrapha</p>";
+				$mailer->text = "This is an email\n\nThis is a paragrapha";
+
+				if($mailer->send())
+				{
+					Yii::log("Successfully sent email", "RMailer");
 				}
 				else
 				{
-					echo "<p>Sorry, please try again later</p>";
+					Yii::log($mailer->ErrorMessage, "RMailer");		// confirmation email failed to send
 				}
+				echo "<p>Thank you for subscribing</p>";
 			}
-			catch(Exception $ex)
+			else
 			{
-				Yii::log($ex->getMessage(), "RMailer");
-				echo "<p>Sorry, please try again later</p>";
+				echo "<p>Sorry, please try again later</p>"; 	// failed to add to mailing list
 			}
-		}
-		
+		}		
 	}
 
 	/**

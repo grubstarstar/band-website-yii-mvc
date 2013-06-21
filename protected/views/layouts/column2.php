@@ -29,6 +29,7 @@
 						array('site/subscribe'),
 						array(
 							'type' => 'post',
+							'beforeSend' => 'js:function() { $("#subscribe_ajax_msg").html("WAIT"); }',
 							'update' => '#subscribe_ajax_msg',
 						),
 						array()
