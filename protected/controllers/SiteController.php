@@ -82,8 +82,8 @@ class SiteController extends Controller
 				);
 
 				$mailer->subject = "Thank you for subscribing!";
-				$mailer->html = "<h1>This is an email</h1><p>This is a paragrapha</p>";
-				$mailer->text = "This is an email\n\nThis is a paragrapha";
+				$mailer->html = $this->renderPartial('//email_templates/subscribe.html', null, true);
+				$mailer->text = $this->renderPartial('//email_templates/subscribe.text', null, true);
 
 				if($mailer->send())
 				{
