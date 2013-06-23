@@ -5,5 +5,8 @@ assets
 index.php
 index-test.php
 protected/config/*.php
-protected/index.php
-protected/index-test.php
+!protected/config/*template.php
+index.php
+index-test.php
+bin/lame.exe
+bin/lame_enc.dll
