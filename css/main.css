@@ -18,6 +18,18 @@ a
 	color: #000;
 }
 
+#subscribe_ajax_msg
+{
+	height: 16px;
+}
+
+.ajax_loading
+{
+	background-image: url('../images/ajax-loader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 #page
 {
 	background: white;

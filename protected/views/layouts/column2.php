@@ -20,7 +20,7 @@
 
 			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'first', array('value'=>'first name')); ?></div>
 
-			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'last', array('value'=>'second')); ?></div>
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'last', array('value'=>'second name')); ?></div>
 
 			<div class="part">
 				<?php
@@ -29,8 +29,9 @@
 						array('site/subscribe'),
 						array(
 							'type' => 'post',
-							'beforeSend' => 'js:function() { $("#subscribe_ajax_msg").html("WAIT"); }',
+							'beforeSend' => 'js:function() { $("#subscribe_ajax_msg").empty().addClass("ajax_loading"); }',
 							'update' => '#subscribe_ajax_msg',
+							'complete' => 'js:function() { $("#subscribe_ajax_msg").removeClass("ajax_loading"); }',
 						),
 						array()
 					); ?>
