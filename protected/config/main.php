@@ -53,10 +53,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=alonewithtiger',
+			'connectionString' => 'mysql:host=localhost;dbname=grubmus1_alonewithtiger',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'grubmus1',
+			'password' => 't6E!$&Ho',
 			'charset' => 'utf8',
 		),
 		
