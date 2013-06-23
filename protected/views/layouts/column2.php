@@ -16,11 +16,11 @@
 
 			<div class="negative side_title part">SUBSCRIBE</div>
 
-			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'email', array('value'=>'email here')); ?></div>
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'email', array('placeholder'=>'email address')); ?></div>
 
-			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'first', array('value'=>'first name')); ?></div>
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'first', array('placeholder'=>'first name')); ?></div>
 
-			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'last', array('value'=>'second name')); ?></div>
+			<div class="part"><?php echo CHtml::activeTextField($mailing_list_model, 'last', array('placeholder'=>'second name')); ?></div>
 
 			<div class="part">
 				<?php

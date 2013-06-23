@@ -2,9 +2,13 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #222;
+	color: #444;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	background-image: url('../images/back_low_contrast.jpg');
+	/*background-image: url('../images/head.png');*/
+	/*background-repeat: no-repeat;*/
+	background-position: 0 1500px;
+	background-size: 1920px;
 	font-family: 'Cabin', sans-serif;
 }
 
@@ -34,29 +38,27 @@ a
 {
 	background: white;
 	border: 1px solid #CCC;
-	width: 1068px;
+	width: 980px;
 	margin-top: 20px;
 }
 
 #inner-page
 {
 	margin: 20px;
-	/*height: 640px;*/
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	height: 150px;
-	border-top: 1px solid #444;
+	height: 120px;
 }
 
 #content
 {
-	width: 865px;
+	width: 780px;
 	height: 560px;
-	margin-top: 15px;
+	margin-top: 20px;
 }
 
 .negative
@@ -67,11 +69,11 @@ a
 
 #sidebar
 {
-	width: 148px;
+	width: 140px;
 	height: 560px;
 	float:right;
-	margin-top: 15px;
-	margin-left: 15px;
+	margin-top: 20px;
+	margin-left: 20px;
 }
 
 input
@@ -95,12 +97,12 @@ input
 }
 #sidebar input
 {
-	width: 142px;
+	width: 134px;
 	padding: 2px;
 }
 #sidebar input[type=submit]
 {
-	width: 148px;
+	width: 140px;
 }
 
 input[type=submit]
@@ -127,18 +129,19 @@ input[type=submit]:hover
 
 #logo
 {
-	font-size: 117px;
+	font-size: 100px;
 	margin: 0 auto;
-	width: 1028px;
+	background-image: url('../images/title.gif');
+	background-size: 935px;
+	background-position: 3px -15px;
+	text-indent: -999em;
 	text-align: center;
 }
 
 #mainmenu
 {
 	height: 35px;
-	/*background-color: #EAB;*/
-	border-top: 1px solid #444;
-	border-bottom: 1px solid #444;
+	background-color: #fee4f4;
 }
 
 #mainmenu ul
@@ -162,7 +165,7 @@ input[type=submit]:hover
 {
 	display: block;
 	height: 15px;
-	background-color: transparent;
+	background-color: #fee4f4;
 	font-size:11px;
 	font-weight:bold;
 	text-decoration:none;
@@ -173,7 +176,7 @@ input[type=submit]:hover
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
 	color: #FFF;
-	background-color:#444;
+	background-color:#fb470f;
 	text-decoration:none;
 }
 
