@@ -5,3 +5,5 @@ assets
 index.php
 index-test.php
 protected/config/*.php
+protected/index.php
+protected/index-test.php
