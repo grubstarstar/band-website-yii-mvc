@@ -36,10 +36,10 @@ Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 					array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-					array('label'=>'ABOUT', 'url'=>array('/site/page', 'view'=>'about')),
-					array('label'=>'SHOWS', 'url'=>array('/shows/index')),
-					array('label'=>'AUDIO', 'url'=>array('/song/index')),
-					array('label'=>'HOME', 'url'=>array('/site/index'))
+					array('label'=>'SEE', 'url'=>array('/shows/index')),
+					array('label'=>'HEAR', 'url'=>array('/song/index')),
+					array('label'=>'KNOW', 'url'=>array('/site/page', 'view'=>'about')),
+					// array('label'=>'HOME', 'url'=>array('/site/index'))
 					// array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				),
 			)); ?>

@@ -40,11 +40,11 @@ class Shows extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title', 'required'),
-			array('title, venue, url', 'length', 'max'=>255),
+			array('title, venue, url, fbevent_url', 'length', 'max'=>255),
 			array('time, description', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, time, venue, description, url', 'safe', 'on'=>'search'),
+			array('id, title, time, venue, description, url, fbevent_url', 'safe', 'on'=>'search'),
 		);
 	}
 

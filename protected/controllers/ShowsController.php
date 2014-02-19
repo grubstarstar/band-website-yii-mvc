@@ -122,9 +122,11 @@ class ShowsController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$shows = Shows::model()->findAll();
 		$dataProvider=new CActiveDataProvider('Shows');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+			'shows'=>$shows,
 		));
 	}
 

@@ -4,11 +4,15 @@ body
 	padding: 0;
 	color: #444;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background-image: url('../images/back_low_contrast.jpg');
+	/*background-size: 1680px Auto;*/
+	/*background-image: url('../images/gold.jpg');*/
+	background-image: url('../images/airspace.jpg');
+	/*background-image: url('../images/outfocus.jpg');*/
+	/*background-image: url('../images/eat carpet.jpg');*/
 	/*background-image: url('../images/head.png');*/
 	/*background-repeat: no-repeat;*/
-	background-position: 0 1500px;
-	background-size: 1920px;
+	background-position: 0 0;
+	/*background-size: 1920px;*/
 	font-family: 'Cabin', sans-serif;
 }
 
@@ -39,7 +43,9 @@ a
 	background: white;
 	border: 1px solid #CCC;
 	width: 980px;
+	height: 665px;
 	margin-top: 40px;
+	/*margin-bottom: 240px;*/
 }
 
 #inner-page
@@ -131,9 +137,12 @@ input[type=submit]:hover
 {
 	font-size: 100px;
 	margin: 0 auto;
-	background-image: url('../images/title.gif');
-	background-size: 935px;
-	background-position: 3px -15px;
+	height: 101px;
+	width: 940px;
+	background-image: url('../images/title.png');
+	/*background-size: 935px;*/
+	/*background-position: 3px;*/
+	/*background-position: 3px -15px;*/
 	text-indent: -999em;
 	text-align: center;
 }
@@ -146,7 +155,7 @@ input[type=submit]:hover
 
 #mainmenu ul
 {
-	width: 600px;
+	width: 455px;
 	height: inherit;
 	margin:0px auto;
 	padding: 0;
@@ -156,6 +165,7 @@ input[type=submit]:hover
 {
 	float:right;
 	display: block;
+	text-align: center;
 	width: 150px;
 	height: inherit;
 	padding-left: 10px 20px;

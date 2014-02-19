@@ -1,18 +1,28 @@
 <?php
 /* @var $this ShowsController */
 /* @var $data Shows */
+
+Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/css/shows_view.css");
+
 ?>
 
-<div class="view">
+<div class="show_view" timeline_id="<?php echo $data->id ?>">
 
-	<div class="negative side_title part"><?php echo CHtml::encode($data->title); ?></div>
+	<div class="header"><?php echo CHtml::encode($data->title); ?></div>
 
-	<div><?php echo strftime( "%d %B %Y @ %I:%M %p", strtotime($data->time)); ?></div>
+	<div class="content">
 
-	<div><?php echo CHtml::encode($data->venue); ?></div>
+		<div class="date"><em><?php echo strftime( "%d %B %Y from %I:%M %p", strtotime($data->time)); ?></em></div>
 
-	<div><?php echo CHtml::encode($data->description); ?></div>
+		<div class="venue"><a href="<?php echo CHtml::encode($data->url) ?>"><?php echo '@ ' . CHtml::encode($data->venue); ?></a></div>
 
-	<div><?php echo CHtml::encode($data->url) ?></div>
+		<div class="description"><?php echo CHtml::encode($data->description); ?></div>
+
+<?php if(isset($data->fbevent_url)) { ?>
+		<div class="fbevent"><a target="_blank" href="<?php echo CHtml::encode($data->fbevent_url) ?>"></a></div>
+<?php } ?>
+	
+
+	</div>
 
 </div>
