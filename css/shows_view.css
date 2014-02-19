@@ -1,0 +1,62 @@
+.shows_list {
+	margin-top: 10px;
+}
+
+.shows_list div.summary {
+	display: none;
+	padding: 0;
+}
+
+.shows_list a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.shows_list div.items div.show_view {
+	border-radius: 5px;
+	background-color: #FB470F;
+	padding: 5px;
+	height: 355px;
+}
+
+.shows_list div.items div.show_view div {
+	/*background-color: #FB470F;*/
+	/*border: blue thin solid;*/
+	margin: 0;
+	padding: 5px;
+}
+
+.shows_list div.items div.show_view div.content {
+	/*margin: 5px;*/
+	background-color: #FFF;
+	border-radius: 5px;
+	height: 324px;
+	padding: 0 5px 5px 5px;
+}
+
+.shows_list div.items div.show_view div.header {
+	color: #FFF;
+}
+
+.shows_list div.items div.show_view div.content div.date {
+	/*background-color: #FB470F;*/
+	/*border: blue thin solid;*/
+}
+
+.shows_list div.items div.show_view div.content div.venue {
+	/*background-color: #FB470F;*/
+	/*border: blue thin solid;*/
+}
+
+.shows_list div.items div.show_view div.content div.description {
+	/*background-color: #FB470F;*/
+	/*border: blue thin solid;*/
+}
+
+.shows_list div.items div.show_view div.content div.fbevent a {
+	/*background-color: #FB470F;*/
+	display: block;
+	background-image: url("../images/fb_event2.png");
+	width: 48px;
+	height: 27px;
+}

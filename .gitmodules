@@ -1,0 +1,3 @@
+[submodule "protected/lib/RUtils"]
+	path = protected/lib/RUtils
+	url = https://grubstarstar@bitbucket.org/grubstarstar/rutils.git
