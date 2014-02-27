@@ -14,7 +14,8 @@
 
 .shows_list div.items div.show_view {
 	border-radius: 5px;
-	background-color: #FB470F;
+	/*background-color: #FB470F;*/
+	background: linear-gradient(180deg, #FB470F, #FFF);
 	padding: 5px;
 	height: 355px;
 }
@@ -28,7 +29,7 @@
 
 .shows_list div.items div.show_view div.content {
 	/*margin: 5px;*/
-	background-color: #FFF;
+	/*background-color: #FFF;*/
 	border-radius: 5px;
 	height: 324px;
 	padding: 0 5px 5px 5px;

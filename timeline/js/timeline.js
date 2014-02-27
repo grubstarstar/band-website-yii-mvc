@@ -250,7 +250,7 @@ Timeline.Bubble = function(timeline) {
         var html     = "";
 
         html += "<div id=\"" + id + "\" class=\"timeline_bubble\">";
-        html += "<div class=\"bubble_top" + IE6Class + "\"></div>";
+        html += "<div class=\"bubble_top" + IE6Class + "\"><div class=\"bubble_top_inner\"></div></div>";
         // html += "<div class=\"bubble_mid" + IE6Class + "\"></div>";
         // html += "<div class=\"bubble_bottom" + IE6Class + "\"></div></div>";
         

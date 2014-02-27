@@ -155,12 +155,29 @@
 .timeline_bubble .bubble_top,
 .timeline_bubble .bubble_bottom,
 .timeline_bubble .bubble_mid {
-    background: url(../images/bubble_awt.png) repeat-y;
+    /*background: url(../images/bubble_awt.png) repeat-y;*/
     /*background-color: #FB470F;*/
     overflow: hidden;
 }
 .timeline_bubble .bubble_top {
-    background: url(../images/up_arrow_17x17.png) no-repeat;
+    /*background: url(../images/up_arrow_17x17.png) no-repeat;*/
+    height: 15px;
+    width: 15px;
+    position: relative;
+    left: 64px;
+    overflow: hidden;
+}
+.timeline_bubble .bubble_top .bubble_top_inner {
+    /*background: url(../images/up_arrow_17x17.png) no-repeat;*/
+    position: relative;
+    top: 7px;
+    left: -3px;
+    height: 21px;
+    width: 21px;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    background-color: #FB470F;
 }
 
 .bubbleIE6 {

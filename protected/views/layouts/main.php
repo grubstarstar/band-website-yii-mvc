@@ -25,6 +25,12 @@ Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 
 <body>
 
+<?php
+if(!Yii::app()->user->isGuest) { 
+?>
+<a style="color: #FFF" href="<?php echo Yii::app()->createUrl('/site/logout'); ?>">Logout</a>
+<?php } ?>
+
 <div class="container" id="page">
 	<div id="inner-page">
 
@@ -35,7 +41,7 @@ Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 		<div id="mainmenu">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
-					array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+					// array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 					array('label'=>'SEE', 'url'=>array('/shows/index')),
 					array('label'=>'HEAR', 'url'=>array('/song/index')),
 					array('label'=>'KNOW', 'url'=>array('/site/page', 'view'=>'about')),
