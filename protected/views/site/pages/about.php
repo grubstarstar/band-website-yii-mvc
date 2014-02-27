@@ -35,14 +35,14 @@ Yii::app()->clientScript->registerScript('about_slideshow', '$(function(){
 
 <?php
 	$image_urls = array(
-		"images/band_photos/sarah.jpg",
-		"images/band_photos/Adrian.jpg",
-		"images/band_photos/Julian.jpg",
-		"images/band_photos/sarah2.jpg",
-		"images/band_photos/ricardo.jpg",
-		"images/band_photos/Dave.jpg",
-		"images/band_photos/Chelsea.jpg",
-		"images/band_photos/Eeshan.jpg"
+		"/images/band_photos/sarah.jpg",
+		"/images/band_photos/Adrian.jpg",
+		"/images/band_photos/Julian.jpg",
+		"/images/band_photos/sarah2.jpg",
+		"/images/band_photos/ricardo.jpg",
+		"/images/band_photos/Dave.jpg",
+		"/images/band_photos/Chelsea.jpg",
+		"/images/band_photos/Eeshan.jpg"
 	);
 	shuffle($image_urls);
 ?>
