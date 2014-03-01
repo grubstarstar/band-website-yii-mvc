@@ -85,24 +85,30 @@ $(document).ready(function(){
 			} 
 		})
 		if(typeof(lowest_day) === 'undefined') {
-			window.shows_timeline.tl.nextMonth();
+			window.shows_timeline.tl.bubble.container.hide();
 		} else {
 			show_event(lowest_day.obj);
 		}
+		return lowest_day;
 	}
 
 	window.shows_timeline.tl.old_next_month = window.shows_timeline.tl.nextMonth;
 	window.shows_timeline.tl.old_previous_month = window.shows_timeline.tl.previousMonth;
 	window.shows_timeline.tl.nextMonth = function() {	
 		window.shows_timeline.tl.old_next_month();
-		on_change_month();
+		return on_change_month();
 	};
 	window.shows_timeline.tl.previousMonth = function() {	
 		window.shows_timeline.tl.old_previous_month();
-		on_change_month();
+		return on_change_month();
 	};
 
-	on_change_month();
+	if(typeof on_change_month() === 'undefined') {
+		var tryMonths = 3;
+		while(typeof window.shows_timeline.tl.nextMonth() == 'undefined' && tryMonths > 0) {
+			tryMonths--;
+		}
+	};
 });
 </script>
 <div id="timeline">
