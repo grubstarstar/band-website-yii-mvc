@@ -72,7 +72,7 @@ $(document).ready(function(){
 	window.shows_timeline.tl.onMouseEnter = show_event_event; // override the timeline.js one, hacky :(
 	window.shows_timeline.tl.onMouseLeave = function() {};
 
-	function change_month() {
+	function on_change_month() {
 		//select the first event in the month
 		var lowest_day = undefined;
 		$('.event').each(function() {
@@ -85,7 +85,7 @@ $(document).ready(function(){
 			} 
 		})
 		if(typeof(lowest_day) === 'undefined') {
-			window.shows_timeline.tl.bubble.container.hide();
+			window.shows_timeline.tl.nextMonth();
 		} else {
 			show_event(lowest_day.obj);
 		}
@@ -95,14 +95,14 @@ $(document).ready(function(){
 	window.shows_timeline.tl.old_previous_month = window.shows_timeline.tl.previousMonth;
 	window.shows_timeline.tl.nextMonth = function() {	
 		window.shows_timeline.tl.old_next_month();
-		change_month();
+		on_change_month();
 	};
 	window.shows_timeline.tl.previousMonth = function() {	
 		window.shows_timeline.tl.old_previous_month();
-		change_month();
+		on_change_month();
 	};
 
-	change_month();
+	on_change_month();
 });
 </script>
 <div id="timeline">
