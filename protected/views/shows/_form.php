@@ -36,7 +36,8 @@ Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');
 			        'model'=>$model, //Model object
 			        'attribute'=>'time', //attribute name
 			        'mode'=>'datetime', //use "time","date" or "datetime" (default)
-			        'options'=>array() // jquery plugin options
+			        'options'=>array(), // jquery plugin options
+			        'language'=>'' // weirdly, if this is empty it's english, if you put 'en' it's Chinese for some reason
 			    ));
 		?>
 	</div>
