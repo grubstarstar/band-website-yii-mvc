@@ -11,3 +11,4 @@ index-test.php
 bin/lame.exe
 bin/lame_enc.dll
 !protected/extensions/*/assets
+*.psd

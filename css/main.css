@@ -6,14 +6,19 @@ body
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	/*background-size: 1680px Auto;*/
 	/*background-image: url('../images/gold.jpg');*/
-	background-image: url('../images/airspace.jpg');
+	background-image: url('../images/airspace2.jpg');
+	/*background-image: url('../images/sar.jpg');*/
 	/*background-image: url('../images/outfocus.jpg');*/
 	/*background-image: url('../images/eat carpet.jpg');*/
 	/*background-image: url('../images/head.png');*/
 	/*background-repeat: no-repeat;*/
-	background-position: 0 0;
+	background-position: 50% 0;
+	/*background-position: right -30px bottom 10px;*/
+	background-repeat: no-repeat;
+	background-color: black;
 	/*background-size: 1920px;*/
 	font-family: 'Cabin', sans-serif;
+  	min-height: 100%;
 }
 
 h1
@@ -45,6 +50,8 @@ a
 	width: 980px;
 	height: 665px;
 	margin-top: 40px;
+	box-shadow: 0px 0px 1100px #333;
+	/*margin-left: 40px;*/
 	/*margin-bottom: 240px;*/
 }
 
