@@ -12,3 +12,4 @@ bin/lame.exe
 bin/lame_enc.dll
 !protected/extensions/*/assets
 *.psd
+.DS_Store
